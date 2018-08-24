@@ -1,33 +1,35 @@
 <template>
-    <div class="todoList">
-        <input type="text" class="add-todo" placeholder="add new todo" v-model="newTodo">
-        <button class="add-todo-button" @click="addTodo">Add</button>
-        <TodoItem v-for="(todo, index) in todos"
+  <div class="todoList">
+    <AddTodo v-on:add-todo="addTodo($event)"/>
+    <TodoItem v-for="(todo, index) in todos"
               :key="todo.id"
               :todo="todo"
               :index="index + 1"
-        ></TodoItem>
-    </div>
+    />
+  </div>
 </template>
 
 <script>
 import TodoItem from './TodoItem.vue'
+import AddTodo from './AddTodo'
 
 export default {
   name: 'TodoList',
   data: function() {
     return {
-      newTodo: '',
       todos: [new Todo(1, 'First of todo'), new Todo(2, 'Can you see me')]
     }
   },
   methods: {
-    addTodo() {
-      this.todos.push(new Todo(parseInt(Math.random() * 100), this.newTodo))
-      this.newTodo = ''
+    addTodo(newTodo) {
+      const trimmedNewTodo = newTodo
+      if (trimmedNewTodo) {
+        this.todos.push(new Todo(parseInt(Math.random() * 100), trimmedNewTodo))
+      }
     }
   },
   components: {
+    AddTodo,
     TodoItem
   }
 }
