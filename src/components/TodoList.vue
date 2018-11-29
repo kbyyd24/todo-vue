@@ -19,7 +19,7 @@ export default {
   name: 'TodoList',
   data: function() {
     return {
-      todos: [new Todo(1, 'First of todo'), new Todo(2, 'Can you see me')]
+    todos: []
     }
   },
   methods: {
@@ -49,6 +49,7 @@ export class Todo {
 
 <style scoped>
 .todoList {
+  font-family: 'Monaco';
   width: 40%;
   margin: auto;
 }
