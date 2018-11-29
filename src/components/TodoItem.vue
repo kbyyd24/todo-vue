@@ -17,7 +17,6 @@ export default {
   props: ['todo', 'index'],
   methods: {
     removeTodo() {
-      console.log(this)
       this.$emit('remove-todo', this.todo)
     }
   }
