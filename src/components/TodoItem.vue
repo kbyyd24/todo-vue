@@ -1,6 +1,6 @@
 <template>
   <div class="todo-item">
-    <span class="item-index">{{ index }}</span>
+    <span class="item-index">{{ index }}. </span>
     <p class="content">{{ todo.content }}</p>
   </div>
 </template>
@@ -14,10 +14,15 @@ export default {
 
 <style scoped>
 .todo-item {
-}
-.item-index {
+  background-color: azure;
+  border-radius: 5px;
+  text-align: left;
+  margin-top: 10px;
 }
 .content {
-  background-color: lightgrey;
+  font-family: 'Monaco';
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: inline;
 }
 </style>
