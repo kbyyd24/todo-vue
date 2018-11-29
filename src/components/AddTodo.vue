@@ -1,11 +1,10 @@
 <template>
   <div class="add-todo">
     <textarea
-      type="text"
-      class="add-todo-input"
+      class="add-todo-textarea"
       placeholder="add new todo"
       v-model="value"
-      @keypress.enter="addTodo"
+      @keypress.alt.enter="addTodo"
     />
 
     <div class="add-todo-button">
@@ -32,6 +31,15 @@ export default {
 </script>
 
 <style scoped>
+.add-todo-textarea {
+  font-family: 'Monaco';
+  width: 80%;
+  height: 120px;
+  border-style: none;
+  border-bottom-style: solid;
+  border-bottom-color: cadetblue;
+}
+
 .add-todo-button {
   display: block;
 }
