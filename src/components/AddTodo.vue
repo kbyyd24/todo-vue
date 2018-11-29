@@ -1,12 +1,16 @@
 <template>
   <div class="add-todo">
-    <input type="text"
-           class="add-todo-input"
-           placeholder="add new todo"
-           v-model="value"
-           @keypress.enter="addTodo"
+    <textarea
+      type="text"
+      class="add-todo-input"
+      placeholder="add new todo"
+      v-model="value"
+      @keypress.enter="addTodo"
     />
-    <button class="add-todo-button" @click="addTodo">Add</button>
+
+    <div class="add-todo-button">
+      <button @click="addTodo">Add</button>
+    </div>
   </div>
 </template>
 
@@ -28,4 +32,7 @@ export default {
 </script>
 
 <style scoped>
+.add-todo-button {
+  display: block;
+}
 </style>

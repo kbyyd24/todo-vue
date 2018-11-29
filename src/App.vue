@@ -29,4 +29,12 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+button {
+  font-family: 'Monaco';
+  font-size: 0.8em;
+  background-color: #3db882;
+  border-radius: 5px;
+  border-width: 0;
+}
 </style>
