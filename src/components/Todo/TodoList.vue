@@ -13,7 +13,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { CREATE_TODO } from '../../mutation-types.js'
+import { CREATE_TODO, REMOVE_TODO } from '../../mutation-types.js'
 import TodoItem from './TodoItem'
 import TodoCreator from './TodoCreator'
 import Todo from './todo.js'
@@ -33,8 +33,7 @@ export default {
       }
     },
     removeTodo(targetTodo) {
-      // this.todos = this.todos.filter(todo => todo.id !== targetTodo.id)
-      console.log('should remove it')
+      this.$store.commit(REMOVE_TODO, targetTodo)
     }
   },
   components: {

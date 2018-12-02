@@ -1,16 +1,19 @@
 import Vuex, { Store } from "vuex";
 import Vue from 'vue';
-import { CREATE_TODO } from "./mutation-types";
+import * as mutationTypes from "./mutation-types";
 
 Vue.use(Vuex)
 
 export default new Store({
     state: {
-        todoList: [{content: 'ha'}]
+        todoList: []
     },
     mutations: {
-        [CREATE_TODO] (state, todo) {
+        [mutationTypes.CREATE_TODO] (state, todo) {
             state.todoList.push(todo);
+        },
+        [mutationTypes.REMOVE_TODO] (state, targetTodo) {
+            state.todoList = state.todoList.filter(todo => todo !== targetTodo)
         }
     }
 })
