@@ -1,6 +1,6 @@
 <template>
   <div class="todoList">
-    <TodoCreator v-on:add-todo="addTodo($event)"/>
+    <TodoCreator v-on:create-todo="createTodo($event)"/>
     <TodoItem
       v-for="(todo, index) in todos"
       :key="todo.id"
@@ -13,6 +13,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import { CREATE_TODO } from '../../mutation-types.js'
 import TodoItem from './TodoItem'
 import TodoCreator from './TodoCreator'
 import Todo from './todo.js'
@@ -23,12 +24,13 @@ export default {
     todos: state => state.todoList
   }),
   methods: {
-    addTodo(newTodo) {
-      // const trimmedNewTodo = newTodo
-      // if (trimmedNewTodo) {
-      //   this.todos.push(new Todo(parseInt(Math.random() * 100), trimmedNewTodo))
-      // }
-      console.log('should create it')
+    createTodo(newTodo) {
+      if (newTodo) {
+        this.$store.commit(
+          CREATE_TODO,
+          new Todo(parseInt(Math.random() * 100), newTodo)
+        )
+      }
     },
     removeTodo(targetTodo) {
       // this.todos = this.todos.filter(todo => todo.id !== targetTodo.id)

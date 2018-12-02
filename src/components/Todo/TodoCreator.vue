@@ -4,11 +4,11 @@
       class="add-todo-textarea"
       placeholder="add new todo"
       v-model="value"
-      @keypress.alt.enter="addTodo"
+      @keypress.alt.enter="createTodo"
     />
 
     <div class="add-todo-button">
-      <button @click="addTodo">Add</button>
+      <button @click="createTodo">Create</button>
     </div>
   </div>
 </template>
@@ -22,8 +22,8 @@ export default {
     }
   },
   methods: {
-    addTodo() {
-      this.$emit('add-todo', this.value.trim())
+    createTodo() {
+      this.$emit('create-todo', this.value.trim())
       this.value = ''
     }
   }
