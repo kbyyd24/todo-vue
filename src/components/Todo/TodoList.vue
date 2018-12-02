@@ -12,26 +12,27 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import TodoItem from './TodoItem'
 import TodoCreator from './TodoCreator'
 import Todo from './todo.js'
 
 export default {
   name: 'TodoList',
-  data: function() {
-    return {
-    todos: []
-    }
-  },
+  computed: mapState({
+    todos: state => state.todoList
+  }),
   methods: {
     addTodo(newTodo) {
-      const trimmedNewTodo = newTodo
-      if (trimmedNewTodo) {
-        this.todos.push(new Todo(parseInt(Math.random() * 100), trimmedNewTodo))
-      }
+      // const trimmedNewTodo = newTodo
+      // if (trimmedNewTodo) {
+      //   this.todos.push(new Todo(parseInt(Math.random() * 100), trimmedNewTodo))
+      // }
+      console.log('should create it')
     },
     removeTodo(targetTodo) {
-      this.todos = this.todos.filter(todo => todo.id !== targetTodo.id)
+      // this.todos = this.todos.filter(todo => todo.id !== targetTodo.id)
+      console.log('should remove it')
     }
   },
   components: {
