@@ -1,6 +1,6 @@
 <template>
   <div class="todoList">
-    <AddTodo v-on:add-todo="addTodo($event)"/>
+    <TodoCreator v-on:add-todo="addTodo($event)"/>
     <TodoItem
       v-for="(todo, index) in todos"
       :key="todo.id"
@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import TodoItem from './TodoItem.vue'
-import AddTodo from './AddTodo'
+import TodoItem from './TodoItem'
+import TodoCreator from './TodoCreator'
 
 export default {
   name: 'TodoList',
@@ -34,7 +34,7 @@ export default {
     }
   },
   components: {
-    AddTodo,
+    TodoCreator,
     TodoItem
   }
 }

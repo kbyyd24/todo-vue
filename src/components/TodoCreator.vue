@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'AddTodo',
+  name: 'TodoCreator',
   data: function() {
     return {
       value: ''
