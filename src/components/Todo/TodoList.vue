@@ -14,6 +14,7 @@
 <script>
 import TodoItem from './TodoItem'
 import TodoCreator from './TodoCreator'
+import Todo from './todo.js'
 
 export default {
   name: 'TodoList',
@@ -36,13 +37,6 @@ export default {
   components: {
     TodoCreator,
     TodoItem
-  }
-}
-
-export class Todo {
-  constructor(id, content) {
-    this.id = id
-    this.content = content
   }
 }
 </script>
