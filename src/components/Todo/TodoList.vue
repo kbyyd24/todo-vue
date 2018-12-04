@@ -2,7 +2,7 @@
   <div class="todoList">
     <TodoCreator v-on:create-todo="createTodo($event)"/>
     <TodoItem
-      v-for="(todo, index) in todos"
+      v-for="(todo, index) in todos.content"
       :key="todo.id"
       :todo="todo"
       :index="index + 1"
@@ -13,7 +13,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { CREATE_TODO, REMOVE_TODO } from '../../mutation-types.js'
+import { CREATE_TODO, REMOVE_TODO } from './todo-mutation-types.js'
 import TodoItem from './TodoItem'
 import TodoCreator from './TodoCreator'
 import Todo from './todo.js'
