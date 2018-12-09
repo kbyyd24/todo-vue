@@ -1,6 +1,6 @@
 import * as mutationTypes from './todo-mutation-types'
 import * as actionTypes from './todo-action-types'
-import Axios from 'axios'
+import { loadTodoList } from '../../api/todo'
 
 export const todoStore = {
   state: {
@@ -19,7 +19,7 @@ export const todoStore = {
   },
   actions: {
     [actionTypes.LOAD_TODO_LIST](context) {
-      Axios.get('/todos')
+      loadTodoList()
         .then(response => {
           context.commit(mutationTypes.LOAD_TODO_LIST, response.data)
         })

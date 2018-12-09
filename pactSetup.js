@@ -1,6 +1,6 @@
 import { resolve } from 'path';
 import { Pact } from '@pact-foundation/pact';
-​
+
 global.port = 8989;
 global.provider = new Pact({
   port: global.port,
