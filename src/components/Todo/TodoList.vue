@@ -39,6 +39,9 @@ export default {
   components: {
     TodoCreator,
     TodoItem
+  },
+  beforeMount: function() {
+    this.$store.dispatch('loadTodoList')
   }
 }
 </script>
