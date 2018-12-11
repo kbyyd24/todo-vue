@@ -1,8 +1,17 @@
 import { loadTodoList } from './todo'
+import { Matchers } from '@pact-foundation/pact';
 
 describe('Todo API contract test', () => {
   describe('Load todo list API', () => {
-    const responseBody = [{ id: 'string', content: 'string' }]
+    const responseBody = [
+      { 
+        id: Matchers.uuid(), 
+        content: Matchers.term({
+          generate: 'todo content',
+          matcher: '.*'
+        }),
+      }
+    ]
     
     beforeEach(() => {
       const interaction = {
@@ -25,7 +34,8 @@ describe('Todo API contract test', () => {
     it('load todo list success', done => {
       loadTodoList()
       .then(response => {
-        expect(response.data).toEqual(responseBody)
+        expect(response.data.id).not.toBeNull()
+        expect(response.data.content).not.toBeNull()
         done()
       })
       .then(() => {
