@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "pactTest": "jest --testRegex \"/*(.test.pact.js)\" --runInBand --setupFiles ./pactSetup.js --setupTestFrameworkScriptFile ./pactTestWrapper.js"
+    "test:pact": "jest --testRegex \"/*(.test.pact.js)\" --runInBand --setupFiles ./pactSetup.js --setupTestFrameworkScriptFile ./pactTestWrapper.js",
+    "publish:pact": "node ./pactPublisher.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
